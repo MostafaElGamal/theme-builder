@@ -6,9 +6,21 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "format": "prettier --write . && oxlint --fix .",
+    "format:check": "prettier --list-different . && oxlint .",
+    "lint": "oxlint ."
   },
   "dependencies": {
-    "astro": "^5.16.8"
+    "astro": "^5.16.8",
+    "preact": "^10.28.2",
+    "@astrojs/preact": "^4.1.3"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.8",
+    "@types/react-dom": "^19.2.3",
+    "oxlint": "^1.30.0",
+    "prettier": "^3.7.3",
+    "prettier-plugin-astro": "^0.14.1"
   }
 }

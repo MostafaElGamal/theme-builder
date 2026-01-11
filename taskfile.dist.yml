@@ -1,0 +1,26 @@
+version: "3"
+
+vars:
+  NODE_ENV: development
+
+tasks:
+  default:
+    cmds:
+      - task --list
+
+  install:
+    desc: Install project dependencies
+    cmds:
+      - pnpm install
+
+  start:
+    desc: Start development server
+    cmds:
+      - pnpm dev
+
+  lint:
+    desc: Lint code & format it and type check typescript
+    cmds:
+      - pnpm lint
+      - pnpm tsc
+      - pnpm format:check
