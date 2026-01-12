@@ -1,0 +1,28 @@
+---
+// Product variant 1 - Grid layout
+---
+
+<section class='product-1 py-16 bg-white'>
+  <div class='container mx-auto px-4'>
+    <h2 class='text-3xl font-bold mb-8'>Featured Products</h2>
+    <div class='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4 gap-6'>
+      {
+        [1, 2, 3, 4].map((i) => (
+          <div class='product-card bg-white border rounded-lg overflow-hidden hover:shadow-lg transition cursor-pointer'>
+            <div class='h-48 bg-gray-200' />
+            <div class='p-4'>
+              <h3 class='font-semibold mb-2'>Product Name {i}</h3>
+              <p class='text-gray-600 text-sm mb-2'>Short description here</p>
+              <div class='flex justify-between items-center'>
+                <span class='text-xl font-bold'>$99.99</span>
+                <button class='bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600 transition'>
+                  Add to Cart
+                </button>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
