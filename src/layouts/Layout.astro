@@ -16,12 +16,15 @@
       content={Astro.generator}
     />
 
-    <script src='https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4'></script>
+    <script
+      is:inline
+      src='/js/tailwindcss.min.js'
+    ></script>
 
     <script
       is:inline
       type='module'
-      src='js/tailwind-config.js'
+      src='custom-tailwind/tailwind-config.js'
     ></script>
 
     <title>Astro Basics</title>
