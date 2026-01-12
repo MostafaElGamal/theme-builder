@@ -1,9 +1,10 @@
 {
   "editor.formatOnSave": true,
   "cSpell.words": ["oxlint"],
-  "tailwindCSS.experimental.configFile": "src/public/custom-tailwind/styles.css",
   "tailwindCSS.includeLanguages": {
     "astro": "html"
   },
-  "tailwindCSS.files.exclude": ["**/.git/**", "**/node_modules/**", "**/.hg/**", "**/.svn/**"]
+  "editor.quickSuggestions": {
+    "strings": true
+  }
 }
