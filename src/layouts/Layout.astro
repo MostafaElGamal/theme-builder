@@ -29,34 +29,5 @@
 
   <body>
     <slot />
-
-    <div class='p-8 space-y-4'>
-      <div class='flex items-center gap-4'>
-        <label
-          for='colorPicker'
-          class='font-medium'
-          >Primary Color:</label
-        >
-        <input
-          type='color'
-          id='colorPicker'
-          value='#178787'
-          class='w-20 h-10 cursor-pointer'
-        />
-      </div>
-
-      <button class='bg-primary px-6 py-2 rounded-lg text-white'> Primary Button </button>
-      <button class='bg-primary-500/10 px-6 py-2 rounded-lg'> Primary-100 Button </button>
-      <button class='bg-red-600 px-6 py-2 rounded-lg text-white'> Test Red Button </button>
-    </div>
-
-    <script>
-      const colorPicker = document.getElementById("colorPicker");
-      // Save color and update theme
-      colorPicker?.addEventListener("input", (e) => {
-        const newColor = e.target.value;
-        window.updatePrimaryColor(newColor);
-      });
-    </script>
   </body>
 </html>
