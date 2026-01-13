@@ -16,16 +16,26 @@
       content={Astro.generator}
     />
 
-    <script
-      is:inline
-      src='/js/tailwindcss.min.js'
-    ></script>
-
+    <!-- START ASTRO SCRIPTS -->
     <script
       is:inline
       type='module'
-      src='custom-tailwind/tailwind-config.js'
+      src='astro/custom-tailwind/tailwind-config.js'
     ></script>
+    <!-- End ASTRO SCRIPTS -->
+
+    <!-- START THEMES SCRIPTS  -->
+    <!-- <link
+      rel='stylesheet'
+      type='text/css'
+      href='https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css'
+    />
+
+    <link
+      rel='stylesheet'
+      href='/css/theme-1.css'
+    /> -->
+    <!-- END THEMES SCRIPTS  -->
 
     <title>Theme Builder</title>
   </head>

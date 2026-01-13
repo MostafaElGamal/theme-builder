@@ -9,7 +9,8 @@
     "astro": "astro",
     "format": "prettier --write . && oxlint --fix .",
     "format:check": "prettier --list-different . && oxlint .",
-    "lint": "oxlint ."
+    "lint": "oxlint .",
+    "remove-tailwind": "node scripts/remove-tailwind-classes.js"
   },
   "dependencies": {
     "@astrojs/preact": "^4.1.3",

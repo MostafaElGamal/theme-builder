@@ -1,26 +1,10 @@
 ---
+import Header1 from "@/components/headers/header-1.astro";
 import { getActivePageComponents } from "@/utils/theme";
-
-// Import all possible component variants
-import Banner1 from "@/components/home/banners/banner-1.astro";
-import Banner2 from "@/components/home/banners/banner-2.astro";
-import Banner3 from "@/components/home/banners/banner-3.astro";
-import Category1 from "@/components/home/categories/category-1.astro";
-import Category2 from "@/components/home/categories/category-2.astro";
-import Product1 from "@/components/home/products/product-1.astro";
-import Product2 from "@/components/home/products/product-2.astro";
-import Product3 from "@/components/home/products/product-3.astro";
 
 // Component mapping
 const componentMap = {
-  "banner-1": Banner1,
-  "banner-2": Banner2,
-  "banner-3": Banner3,
-  "category-1": Category1,
-  "category-2": Category2,
-  "product-1": Product1,
-  "product-2": Product2,
-  "product-3": Product3,
+  "header-1": Header1,
 };
 
 // Get active components for home page
