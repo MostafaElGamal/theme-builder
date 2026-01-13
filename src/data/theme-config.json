@@ -1,5 +1,12 @@
 {
   "theme-1": {
-    "home": ["header-1"]
+    "home": ["header-1"],
+    "resources": {
+      "css": [
+        "/theme-1/css/theme-1.css",
+        "https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css"
+      ],
+      "js": []
+    }
   }
 }

@@ -1,3 +1,15 @@
+---
+import { themeExists, getThemeResources } from "@/utils/theme";
+
+// Get the current theme from .env or URL params or default to first theme
+const envTheme = import.meta.env.ACTIVE_THEME;
+const currentTheme = envTheme;
+
+// Check if the theme exists and get its resources
+const isValidTheme = themeExists(currentTheme);
+const themeResources = isValidTheme ? getThemeResources(currentTheme) : null;
+---
+
 <!doctype html>
 <html lang='en'>
   <head>
@@ -16,26 +28,33 @@
       content={Astro.generator}
     />
 
+    <!-- START DYNAMIC THEME SCRIPTS  -->
+    {
+      themeResources && (
+        <>
+          {themeResources.css.map((cssFile: string) => (
+            <link
+              rel='stylesheet'
+              href={cssFile}
+            />
+          ))}
+
+          {themeResources.js.map((jsFile: string) => (
+            <script
+              is:inline
+              src={jsFile}
+            />
+          ))}
+        </>
+      )
+    }
+    <!-- END DYNAMIC THEME SCRIPTS  -->
+
     <!-- START ASTRO SCRIPTS -->
-    <script
-      is:inline
-      type='module'
-      src='astro/custom-tailwind/tailwind-config.js'
-    ></script>
+    <script is:inline type='module' src='astro/custom-tailwind/tailwind-config.js'></script>
+
+    <script is:inline type='module' src='astro/custom-tailwind/tailwindcss.min.js'></script>
     <!-- End ASTRO SCRIPTS -->
-
-    <!-- START THEMES SCRIPTS  -->
-    <!-- <link
-      rel='stylesheet'
-      type='text/css'
-      href='https://cdn.jsdelivr.net/npm/@phosphor-icons/web@2.1.1/src/regular/style.css'
-    />
-
-    <link
-      rel='stylesheet'
-      href='/css/theme-1.css'
-    /> -->
-    <!-- END THEMES SCRIPTS  -->
 
     <title>Theme Builder</title>
   </head>
