@@ -18,6 +18,11 @@ tasks:
     cmds:
       - pnpm dev
 
+  minify-css:
+    desc: Minify CSS files
+    cmds:
+      - node src/utils/minify-css.js
+
   lint:
     desc: Lint code & format it and type check typescript
     cmds:
