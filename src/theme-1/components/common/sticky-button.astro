@@ -1,0 +1,79 @@
+<div
+  id='scroll-to-top'
+  class='fixed right-8 bottom-8 !w-14 !h-14 rounded-full bg-white shadow-lg cursor-pointer z-[10000] opacity-0 invisible transition-all duration-300 hover:scale-110 flex items-center justify-center'
+>
+  <i class='phx`` ph-arrow-up text-2xl text-main-600 relative z-10'></i>
+
+  <svg
+    class='absolute inset-0 -rotate-90 w-full h-full'
+    viewBox='0 0 56 56'
+  >
+    <circle
+      cx='28'
+      cy='28'
+      r='26'
+      fill='none'
+      stroke='#e5e7eb'
+      stroke-width='3'
+    >
+    </circle>
+    <circle
+      id='progress-circle'
+      cx='28'
+      cy='28'
+      r='26'
+      fill='none'
+      stroke='currentColor'
+      stroke-width='3'
+      stroke-linecap='round'
+      class='text-main-600'
+      style='stroke-dasharray: 163.36; stroke-dashoffset: 163.36; transition: stroke-dashoffset 0.1s linear;'
+    >
+    </circle>
+  </svg>
+</div>
+
+<script is:inline>
+  (function () {
+    const scrollBtn = document.getElementById("scroll-to-top");
+    const progressCircle = document.getElementById("progress-circle");
+
+    if (!scrollBtn || !progressCircle) return;
+
+    const radius = 26;
+    const circumference = 2 * Math.PI * radius;
+
+    progressCircle.style.strokeDasharray = circumference;
+    progressCircle.style.strokeDashoffset = circumference;
+
+    function updateProgress() {
+      const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+      const docHeight =
+        document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrollPercent = scrollTop / docHeight;
+      const offset = circumference - scrollPercent * circumference;
+
+      progressCircle.style.strokeDashoffset = offset;
+
+      // Show/hide button
+      if (scrollTop > 100) {
+        scrollBtn.classList.remove("opacity-0", "invisible");
+        scrollBtn.classList.add("opacity-100", "visible");
+      } else {
+        scrollBtn.classList.add("opacity-0", "invisible");
+        scrollBtn.classList.remove("opacity-100", "visible");
+      }
+    }
+
+    // Scroll to top on click
+    scrollBtn.addEventListener("click", function () {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    });
+
+    // Update on scroll
+    window.addEventListener("scroll", updateProgress);
+    window.addEventListener("load", updateProgress);
+
+    updateProgress();
+  })();
+</script>
