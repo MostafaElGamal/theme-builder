@@ -114,3 +114,16 @@
   border: 1px solid var(--neutral-200);
   color: white;
 }
+
+.slick-dots {
+  bottom: 20px !important;
+}
+
+.slick-dots li.slick-active button {
+  background-color: var(--color-primary-500) !important;
+}
+
+.slick-dots li button {
+  height: 3px !important;
+  height: 3px !important;
+}

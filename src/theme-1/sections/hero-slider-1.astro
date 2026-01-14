@@ -1,0 +1,87 @@
+<div class='hero-slider-wrapper'>
+  <div class='container container-lg'>
+    <div class='relative'>
+      <!-- Navigation Arrows -->
+      <div
+        class='flex items-center gap-8 absolute top-1/2 -translate-y-1/2 left-4 right-4 justify-between z-10 pointer-events-none'
+      >
+        <button
+          type='button'
+          id='hero-slider-prev'
+          class='slick-prev slick-arrow pointer-events-auto'
+        >
+          <i class='ph ph-caret-left'></i>
+        </button>
+        <button
+          type='button'
+          id='hero-slider-next'
+          class='slick-next slick-arrow pointer-events-auto'
+        >
+          <i class='ph ph-caret-right'></i>
+        </button>
+      </div>
+
+      <!-- Slider -->
+      <div class='hero-slider'>
+        <div class='hero-slide'>
+          <img
+            src='https://placehold.co/1200x500/e0e0e0/333333?text=Slide+1'
+            alt='Slide 1'
+            class='w-full h-auto rounded-b-lg'
+          />
+        </div>
+        <div class='hero-slide'>
+          <img
+            src='https://placehold.co/1200x500/d0d0d0/333333?text=Slide+2'
+            alt='Slide 2'
+            class='w-full h-auto rounded-b-lg'
+          />
+        </div>
+        <div class='hero-slide'>
+          <img
+            src='https://placehold.co/1200x500/c0c0c0/333333?text=Slide+3'
+            alt='Slide 3'
+            class='w-full h-auto rounded-b-lg'
+          />
+        </div>
+        <div class='hero-slide'>
+          <img
+            src='https://placehold.co/1200x500/b0b0b0/333333?text=Slide+4'
+            alt='Slide 4'
+            class='w-full h-auto rounded-b-lg'
+          />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function () {
+    $(".hero-slider").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 800,
+      dots: true,
+      pauseOnHover: true,
+      arrows: true,
+      draggable: true,
+      fade: false,
+      rtl: $("html").attr("dir") === "rtl",
+      infinite: true,
+      nextArrow: "#hero-slider-next",
+      prevArrow: "#hero-slider-prev",
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            dots: true,
+          },
+        },
+      ],
+    });
+  });
+</script>
