@@ -45,6 +45,25 @@ style.id = "tailwind-theme";
 style.textContent = configToTheme(window.themeConfig);
 document.head.appendChild(style);
 
+// Create and inject a regular CSS style tag with :root variables
+const rootStyle = document.createElement("style");
+rootStyle.id = "root-variables";
+
+function generateRootVariables() {
+  let cssContent = ":root {\n";
+  // Add all primary color variants
+  Object.entries(window.themeConfig).forEach(([key, value]) => {
+    if (key.startsWith("--color-primary")) {
+      cssContent += `  ${key}: ${value};\n`;
+    }
+  });
+  cssContent += "}";
+  return cssContent;
+}
+
+rootStyle.textContent = generateRootVariables();
+document.head.appendChild(rootStyle);
+
 // Expose function to update color
 window.updatePrimaryColor = function (newColor) {
   // Update theme config with new color
@@ -57,5 +76,11 @@ window.updatePrimaryColor = function (newColor) {
   const styleTag = document.getElementById("tailwind-theme");
   if (styleTag) {
     styleTag.textContent = configToTheme(window.themeConfig);
+  }
+
+  // Update the root variables style tag
+  const rootStyleTag = document.getElementById("root-variables");
+  if (rootStyleTag) {
+    rootStyleTag.textContent = generateRootVariables();
   }
 };

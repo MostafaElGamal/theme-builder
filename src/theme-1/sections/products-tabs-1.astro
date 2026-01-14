@@ -1,0 +1,227 @@
+---
+import ProductCard2 from "../components/common/product-card-2.astro";
+---
+
+<section class='recommended overflow-hidden'>
+  <div class='container container-lg'>
+    <div class='section-heading flex-between flex-wrap gap-16'>
+      <h5 class='mb-0 wow bounceInLeft'>Recommended for you</h5>
+      <ul
+        class='nav common-tab nav-pills wow bounceInRight'
+        id='pills-tab'
+        role='tablist'
+      >
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr active'
+            data-target='#pills-all'
+            id='pills-all-tab'
+            data-bs-target='#pills-all'
+            type='button'
+            role='tab'
+          >
+            All
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-grocery'
+            id='pills-grocery-tab'
+            data-bs-target='#pills-grocery'
+            type='button'
+            role='tab'
+          >
+            Grocery
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-fruits'
+            id='pills-fruits-tab'
+            data-bs-target='#pills-fruits'
+            type='button'
+            role='tab'
+          >
+            Fruits
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-juices'
+            id='pills-juices-tab'
+            data-bs-target='#pills-juices'
+            type='button'
+            role='tab'
+          >
+            Juices
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-vegetables'
+            id='pills-vegetables-tab'
+            data-bs-target='#pills-vegetables'
+            type='button'
+            role='tab'
+          >
+            Vegetables
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-snacks'
+            id='pills-snacks-tab'
+            data-bs-target='#pills-snacks'
+            type='button'
+            role='tab'
+          >
+            Snacks
+          </button>
+        </li>
+        <li
+          class='nav-item'
+          role='presentation'
+        >
+          <button
+            class='nav-link bt-tb-btn-pr'
+            data-target='#pills-organic'
+            id='pills-organic-tab'
+            data-bs-target='#pills-organic'
+            type='button'
+            role='tab'
+          >
+            Organic Foods
+          </button>
+        </li>
+      </ul>
+    </div>
+
+    <div
+      class='tab-content'
+      id='pills-tabContent'
+    >
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-100'
+        id='pills-all'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />1
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-grocery'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />2
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-fruits'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />3
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-juices'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />4
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-vegetables'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />5
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-snacks'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />6
+        </div>
+      </div>
+      <div
+        class='tab-pane bt-pane-pr transition-opacity duration-150 ease-linear opacity-0 hidden'
+        id='pills-organic'
+        role='tabpanel'
+        tabindex='0'
+      >
+        <div class='row g-12'>
+          <ProductCard2 />7
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<script is:inline>
+  $(document).ready(function () {
+    let hideTimeout = null;
+    let showTimeout = null;
+
+    $(".bt-tb-btn-pr").on("click", function () {
+      var target = $(this).data("target");
+
+      if (hideTimeout) clearTimeout(hideTimeout);
+      if (showTimeout) clearTimeout(showTimeout);
+
+      $(".bt-tb-btn-pr").removeClass("active");
+      $(this).addClass("active");
+
+      $(".bt-pane-pr").removeClass("opacity-100").addClass("opacity-0");
+      hideTimeout = setTimeout(function () {
+        $(".bt-pane-pr").not(target).addClass("hidden");
+        hideTimeout = null;
+      }, 200);
+
+      $(target).removeClass("hidden");
+      showTimeout = setTimeout(function () {
+        $(target).removeClass("opacity-0").addClass("opacity-100");
+        showTimeout = null;
+      }, 200);
+    });
+  });
+</script>

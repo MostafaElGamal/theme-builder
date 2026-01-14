@@ -39,10 +39,11 @@ const themeResources = isValidTheme ? getThemeResources(currentTheme) : null;
             />
           ))}
 
-          {themeResources.js.map((jsFile: string) => (
+          {themeResources.js.map((jsFile: any) => (
             <script
               is:inline
-              src={jsFile}
+              src={jsFile.src}
+              type={jsFile.type || "text/javascript"}
             />
           ))}
         </>
@@ -51,9 +52,19 @@ const themeResources = isValidTheme ? getThemeResources(currentTheme) : null;
     <!-- END DYNAMIC THEME SCRIPTS  -->
 
     <!-- START ASTRO SCRIPTS -->
-    <script is:inline type='module' src='astro/custom-tailwind/tailwind-config.js'></script>
+    <script
+      is:inline
+      type='module'
+      src='astro/custom-tailwind/tailwind-config.js'
+    >
+    </script>
 
-    <script is:inline type='module' src='astro/custom-tailwind/tailwindcss.min.js'></script>
+    <script
+      is:inline
+      type='module'
+      src='astro/custom-tailwind/tailwindcss.min.js'
+    >
+    </script>
     <!-- End ASTRO SCRIPTS -->
 
     <title>Theme Builder</title>

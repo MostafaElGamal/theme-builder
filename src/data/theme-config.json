@@ -1,9 +1,20 @@
 {
   "theme-1": {
-    "home": ["header-1", "banner-1"],
     "resources": {
-      "css": ["/theme-1/css/theme-1.css", "/theme-1/css/phosphor-icons/phosphor-icons.min.css"],
-      "js": []
+      "css": [
+        "/theme-1/css/theme-1.css",
+        "/theme-1/css/slick.css",
+        "/theme-1/css/phosphor-icons/phosphor-icons.min.css"
+      ],
+      "js": [
+        {
+          "src": "/theme-1/js/jquery-3.7.1.min.js"
+        },
+
+        {
+          "src": "/theme-1/js/slick.min.js"
+        }
+      ]
     }
   }
 }

@@ -11,21 +11,7 @@
     {
       "files": "*.astro",
       "options": {
-        "parser": "astro",
-        "htmlWhitespaceSensitivity": "ignore",
-        "bracketSameLine": false,
-        "printWidth": 100,
-        "tabWidth": 2
-      }
-    },
-    {
-      "files": ["*.html", "*.htm"],
-      "options": {
-        "parser": "html",
-        "htmlWhitespaceSensitivity": "ignore",
-        "bracketSameLine": false,
-        "printWidth": 100,
-        "tabWidth": 2
+        "parser": "astro"
       }
     }
   ]
