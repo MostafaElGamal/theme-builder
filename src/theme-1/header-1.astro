@@ -77,7 +77,10 @@ import Header1MiddleHeader from "./components/common/header-1-middle-header.astr
 <Header1MiddleHeader />
 
 <!-- START NAVIGATION HEADER -->
-<header class='bg-white border-b border-gray-100 !-mt-0.5'>
+<header
+  id='navigation-header'
+  class='bg-white border-b z-100 border-gray-100 !-mt-0.5 transition-all duration-300 ease-in-out'
+>
   <div class='container container-lg'>
     <nav class='header-inner flex justify-between gap-8'>
       <div class='flex items-center menu-category-wrapper'>
@@ -90,7 +93,7 @@ import Header1MiddleHeader from "./components/common/header-1-middle-header.astr
               >
                 Home
               </a>
-              <ul class='on-hover-dropdown common-dropdown nav-submenu scroll-sm'>
+              <ul class='on-hover-dropdown common-dropdown nav-submenu scroll-sm z-50'>
                 <li class='common-dropdown__item nav-submenu__item activePage'>
                   <a
                     href='index-2.html'
@@ -352,3 +355,30 @@ import Header1MiddleHeader from "./components/common/header-1-middle-header.astr
   </div>
 </header>
 <!-- END NAVIGATION HEADER -->
+
+<script is:inline>
+  // Make header sticky when scrolled past with slide animation
+  const header = document.getElementById("navigation-header");
+  if (header) {
+    // Store the initial offset position before any scroll
+    const headerOffset = header.offsetTop;
+    let isFixed = false;
+
+    window.addEventListener("scroll", () => {
+      if (window.pageYOffset > headerOffset && !isFixed) {
+        header.classList.add("!fixed", "top-0", "left-0", "right-0", "z-50", "slide-down");
+        header.classList.remove("slide-up");
+        isFixed = true;
+      } else if (window.pageYOffset <= headerOffset && isFixed) {
+        header.classList.add("slide-up");
+        header.classList.remove("slide-down");
+
+        // Remove fixed classes after animation completes
+        setTimeout(() => {
+          header.classList.remove("!fixed", "top-0", "left-0", "right-0", "z-50", "slide-up");
+          isFixed = false;
+        }, 300);
+      }
+    });
+  }
+</script>
