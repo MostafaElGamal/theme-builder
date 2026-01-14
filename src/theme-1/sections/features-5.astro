@@ -1,0 +1,72 @@
+<section class='top-vendors'>
+  <div class='container container-lg'>
+    <div class='section-heading'>
+      <div class='flex-between flex-wrap gap-8'>
+        <h5 class='mb-0'>Weekly Top Vendors</h5>
+        <a
+          href='shop.html'
+          class='text-sm font-[500] text-gray-700 hover-text-main-600 hover-text-decoration-underline'
+        >
+          All Vendors
+        </a>
+      </div>
+    </div>
+    <div class='row g-4 vendor-card-wrapper'>
+      {
+        Array.from({ length: 6 }).map(() => (
+          <div class='custom-2xl:w-3/12 flex-grow-0 flex-shrink-0 basis-auto xl:w-4/12 md:w-6/12'>
+            <div class='bg-primary-100 rounded-xl text-center px-16 pb-24'>
+              <div class=''>
+                <img
+                  src='https://wowtheme7.com/tailwind/marketpro/images/vendor-logo2.png'
+                  alt='Image'
+                  class='vendor-card__logo m-12'
+                />
+                <h6 class='title mt-32'>Organic Market</h6>
+                <span class='text-heading text-sm block'>Delivery by 6:15am</span>
+                <a
+                  href='shop.html'
+                  class='btn btn-main-two rounded-[50rem] py-6 px-16 text-12 mt-8'
+                >
+                  $5 off Snack & Candy
+                </a>
+              </div>
+              <div class='vendor-card__list mt-22 flex items-center justify-center flex-wrap gap-8'>
+                <div class='vendor-card__item bg-white rounded-[50%] flex items-center justify-center'>
+                  <img
+                    src='https://wowtheme7.com/tailwind/marketpro/images/vendor-img1.png'
+                    alt='Image'
+                  />
+                </div>
+                <div class='vendor-card__item bg-white rounded-[50%] flex items-center justify-center'>
+                  <img
+                    src='https://wowtheme7.com/tailwind/marketpro/images/vendor-img1.png'
+                    alt='Image'
+                  />
+                </div>
+                <div class='vendor-card__item bg-white rounded-[50%] flex items-center justify-center'>
+                  <img
+                    src='https://wowtheme7.com/tailwind/marketpro/images/vendor-img1.png'
+                    alt='Image'
+                  />
+                </div>
+                <div class='vendor-card__item bg-white rounded-[50%] flex items-center justify-center'>
+                  <img
+                    src='https://wowtheme7.com/tailwind/marketpro/images/vendor-img1.png'
+                    alt='Image'
+                  />
+                </div>
+                <div class='vendor-card__item bg-white rounded-[50%] flex items-center justify-center'>
+                  <img
+                    src='https://wowtheme7.com/tailwind/marketpro/images/vendor-img1.png'
+                    alt='Image'
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
