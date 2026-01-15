@@ -1,0 +1,153 @@
+<section
+  class='relative overflow-hidden py-2'
+  style='background: #770947'
+>
+  <div class='relative'>
+    <!-- Left fade -->
+    <div
+      class='absolute left-0 top-0 bottom-0 w-20 bg-gradient-to-r from-[#770947] to-transparent z-10 pointer-events-none'
+    >
+    </div>
+
+    <!-- Right fade -->
+    <div
+      class='absolute right-0 top-0 bottom-0 w-20 bg-gradient-to-l from-[#770947] to-transparent z-10 pointer-events-none'
+    >
+    </div>
+
+    <!-- Moving content wrapper -->
+    <div class='flex gap-0'>
+      <div class='flex whitespace-nowrap animate-marquee'>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-[#f4ff00]'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/269e4693-e4d9-451a-875b-f4812424ce2e.svg'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          رمضان مبارك 🌙💜 تتمنى لكم عائلة شوفاي شهراً مليئاً بالجمال والخير
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-white'
+        >
+          شحن مجاني للطلبات أكثر من 300 ريال ✨ اغتنم الفرصة الآن 🔥
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-white'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/4b4b3e90-7a09-4c65-8fae-f8a96c6fd732.png'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          خصم 10% عند الدفع بواسطة مدى
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-[#f4ff00]'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/269e4693-e4d9-451a-875b-f4812424ce2e.svg'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          رمضان مبارك 🌙💜 تتمنى لكم عائلة شوفاي شهراً مليئاً بالجمال والخير
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-white'
+        >
+          شحن مجاني للطلبات أكثر من 300 ريال ✨ اغتنم الفرصة الآن 🔥
+        </a>
+      </div>
+
+      <!-- Duplicate for seamless loop -->
+      <div
+        class='flex whitespace-nowrap animate-marquee'
+        aria-hidden='true'
+      >
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-[#f4ff00]'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/269e4693-e4d9-451a-875b-f4812424ce2e.svg'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          رمضان مبارك 🌙💜 تتمنى لكم عائلة شوفاي شهراً مليئاً بالجمال والخير
+        </a>
+
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-white'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/4b4b3e90-7a09-4c65-8fae-f8a96c6fd732.png'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          خصم 10% عند الدفع بواسطة مدى
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-[#f4ff00]'
+        >
+          <img
+            loading='lazy'
+            decoding='async'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/269e4693-e4d9-451a-875b-f4812424ce2e.svg'
+            alt='image'
+            width='26'
+            height='26'
+          />
+          رمضان مبارك 🌙💜 تتمنى لكم عائلة شوفاي شهراً مليئاً بالجمال والخير
+        </a>
+        <a
+          href='javascript:;'
+          class='inline-flex items-center gap-2 px-8 text-white'
+        >
+          شحن مجاني للطلبات أكثر من 300 ريال ✨ اغتنم الفرصة الآن 🔥
+        </a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  @keyframes marquee {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-100%);
+    }
+  }
+
+  .animate-marquee {
+    animation: marquee 20s linear infinite;
+  }
+
+  .animate-marquee:hover {
+    animation-play-state: paused;
+  }
+</style>

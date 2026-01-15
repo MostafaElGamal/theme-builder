@@ -32,7 +32,7 @@
             >
               <div class='flex flex-col items-center gap-2 min-w-[60px]'>
                 <span
-                  data-days
+                  id='countdown-days'
                   class='text-white text-2xl font-bold block leading-none'
                 >
                   00
@@ -43,7 +43,7 @@
               </div>
               <div class='flex flex-col items-center gap-2 min-w-[60px]'>
                 <span
-                  data-hours
+                  id='countdown-hours'
                   class='text-white text-2xl font-bold block leading-none'
                 >
                   00
@@ -54,7 +54,7 @@
               </div>
               <div class='flex flex-col items-center gap-2 min-w-[60px]'>
                 <span
-                  data-mins
+                  id='countdown-mins'
                   class='text-white text-2xl font-bold block leading-none'
                 >
                   00
@@ -65,7 +65,7 @@
               </div>
               <div class='flex flex-col items-center gap-2 min-w-[60px]'>
                 <span
-                  data-secs
+                  id='countdown-secs'
                   class='text-white text-2xl font-bold block leading-none'
                 >
                   00
@@ -109,10 +109,17 @@
     const endDate = new Date();
     endDate.setHours(endDate.getHours() + 24);
 
-    const daysEl = countdownEl.querySelector("[data-days]");
-    const hoursEl = countdownEl.querySelector("[data-hours]");
-    const minsEl = countdownEl.querySelector("[data-mins]");
-    const secsEl = countdownEl.querySelector("[data-secs]");
+    const daysEl = document.getElementById("countdown-days");
+    const hoursEl = document.getElementById("countdown-hours");
+    const minsEl = document.getElementById("countdown-mins");
+    const secsEl = document.getElementById("countdown-secs");
+
+    console.log(hoursEl);
+
+    if (!daysEl || !hoursEl || !minsEl || !secsEl) {
+      console.log("Countdown elements not found");
+      return;
+    }
 
     function updateCountdown() {
       const now = new Date().getTime();

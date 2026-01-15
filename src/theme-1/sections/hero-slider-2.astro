@@ -1,0 +1,112 @@
+<div class='relative'>
+  <!-- Navigation Arrows -->
+  <div
+    class='flex items-center gap-8 absolute top-1/2 -translate-y-1/2 left-4 right-4 justify-between z-10 pointer-events-none'
+  >
+    <button
+      type='button'
+      id='hero-slider-prev'
+      class='slick-prev slick-arrow pointer-events-auto'
+    >
+      <i class='ph ph-caret-left'></i>
+    </button>
+    <button
+      type='button'
+      id='hero-slider-next'
+      class='slick-next slick-arrow pointer-events-auto'
+    >
+      <i class='ph ph-caret-right'></i>
+    </button>
+  </div>
+
+  <!-- Slider -->
+  <div class='hero-slider-2 !w-full overflow-hidden relative'>
+    <!-- Slide -->
+    <div class='!m-0 overflow-hidden md:!h-[700px]'>
+      <div class='overflow-hidden rounded-b-lg'>
+        <picture>
+          <source
+            srcset='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/b73e5f4f-3e7b-4743-a940-d11eff874eda.jpg'
+          />
+          <img
+            loading='lazy'
+            src='https://media.zid.store/b962db3a-9aad-41a2-aa9a-fe622a1dde26/b73e5f4f-3e7b-4743-a940-d11eff874eda.jpg'
+            alt='banner-desktop'
+          />
+        </picture>
+      </div>
+      <div
+        class='absolute !h-none bottom-20 left-1/2 !-translate-x-1/2 text-center w-full max-w-4xl px-4 z-20'
+      >
+        <h1
+          class='text-4xl md:text-5xl lg:text-6xl font-bold mb-4 text-white drop-shadow-[2px_2px_8px_rgba(0,0,0,0.7)] leading-tight'
+        >
+          Welcome to Our Store
+        </h1>
+        <p
+          class='text-base md:text-lg lg:text-2xl mb-8 text-white drop-shadow-[1px_1px_4px_rgba(0,0,0,0.7)] max-w-2xl mx-auto'
+        >
+          Discover amazing products with unbeatable prices
+        </p>
+        <a
+          href='#'
+          class='btn btn-white'
+        >
+          Shop Now
+        </a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script is:inline>
+  $(document).ready(function () {
+    $(".hero-slider-2").slick({
+      slidesToShow: 1,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 800,
+      dots: true,
+      pauseOnHover: true,
+      arrows: true,
+      draggable: true,
+      fade: false,
+      rtl: $("html").attr("dir") === "rtl",
+      infinite: true,
+      nextArrow: "#hero-slider-next",
+      prevArrow: "#hero-slider-prev",
+      responsive: [
+        {
+          breakpoint: 768,
+          settings: {
+            arrows: false,
+            dots: true,
+          },
+        },
+      ],
+    });
+  });
+</script>
+
+<style>
+  .hero-slider-2 .slick-active .slide-image {
+    transform: scale(1.1);
+  }
+
+  .hero-slider-2 img {
+    animation: zoomInOut 8s ease-in-out infinite;
+  }
+
+  @keyframes zoomInOut {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.1);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }
+</style>

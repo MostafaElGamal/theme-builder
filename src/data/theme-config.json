@@ -4,7 +4,9 @@
       "css": [
         "/theme-1/css/theme-1.css",
         "/theme-1/css/slick.css",
-        "/theme-1/css/phosphor-icons/phosphor-icons.min.css"
+        "/theme-1/css/phosphor-icons/phosphor-icons.min.css",
+        "/theme-1/css/custom-theme-1.css",
+        "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/themes/light.css"
       ],
       "js": [
         {
@@ -13,6 +15,10 @@
 
         {
           "src": "/theme-1/js/slick.min.js"
+        },
+        {
+          "src": "https://cdn.jsdelivr.net/npm/@shoelace-style/shoelace@2.20.1/cdn/shoelace-autoloader.js",
+          "type": "module"
         }
       ]
     }

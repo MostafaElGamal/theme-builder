@@ -1,0 +1,128 @@
+<sl-drawer
+  label='Menu'
+  placement='start'
+  class='mobile-drawer md:hidden'
+>
+  <nav class='flex flex-col h-full'>
+    <ul class='list-none p-0 m-0 flex-1'>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='house'
+            class='text-2xl'
+          ></sl-icon>
+          <span>Home</span>
+        </a>
+      </li>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/shop'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='shop'
+            class='text-2xl'
+          ></sl-icon>
+          <span>Shop</span>
+        </a>
+      </li>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/categories'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='grid'
+            class='text-2xl'
+          ></sl-icon>
+          <span>Categories</span>
+        </a>
+      </li>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/deals'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='tag'
+            class='text-2xl'
+          ></sl-icon>
+          <span>Deals</span>
+        </a>
+      </li>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/about'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='info-circle'
+            class='text-2xl'
+          ></sl-icon>
+          <span>About</span>
+        </a>
+      </li>
+      <li class='border-b border-gray-200'>
+        <a
+          href='/contact'
+          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
+        >
+          <sl-icon
+            name='envelope'
+            class='text-2xl'
+          ></sl-icon>
+          <span>Contact</span>
+        </a>
+      </li>
+    </ul>
+
+    <div class='py-6 px-2 border-t border-gray-200'>
+      <sl-button
+        variant='primary'
+        size='medium'
+        href='/account'
+        outline
+        class='w-full'
+      >
+        <sl-icon
+          slot='prefix'
+          name='person'
+        ></sl-icon>
+        My Account
+      </sl-button>
+    </div>
+  </nav>
+</sl-drawer>
+
+<script>
+  $(document).ready(() => {
+    // Get the drawer element
+    const drawer = document.querySelector(".mobile-drawer");
+    // Function to open the drawer
+    window.openMobileDrawer = () => {
+      if (drawer) {
+        drawer.show();
+      }
+    };
+
+    // Function to close the drawer
+    window.closeMobileDrawer = () => {
+      if (drawer) {
+        drawer.hide();
+      }
+    };
+
+    // Close drawer when clicking on menu items
+    const menuItems = document.querySelectorAll(".mobile-menu-item");
+    menuItems.forEach((item) => {
+      item.addEventListener("click", () => {
+        if (drawer) {
+          drawer.hide();
+        }
+      });
+    });
+  });
+</script>

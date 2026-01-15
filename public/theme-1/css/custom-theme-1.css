@@ -1,0 +1,100 @@
+#navigation-header {
+  transform: translateY(0);
+}
+
+#navigation-header.slide-down {
+  animation: slideDown 0.3s ease-in-out forwards;
+}
+
+#navigation-header.slide-up {
+  animation: slideUp 0.3s ease-in-out forwards;
+}
+
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideUp {
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(-100%);
+  }
+}
+
+.offer-dialog {
+  --body-spacing: 0;
+}
+
+.offer-dialog::part(overlay) {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.shine-effect-wrapper {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  border-radius: 0.75rem;
+}
+
+.shine-effect-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 50%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.5), transparent);
+  transition: left 0.5s ease;
+  z-index: 10;
+}
+
+.shine-effect-wrapper:hover::before {
+  left: 100%;
+}
+
+.btn-outline {
+  border: 2px solid var(--color-primary-600);
+  background-color: transparent;
+  color: var(--color-primary-600) !important;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background-color: var(--color-primary-600);
+  color: white !important;
+}
+
+.btn-white {
+  border: 2px solid white;
+  background-color: white;
+  color: black !important;
+  transition: all 0.3s ease;
+}
+
+.hero-slider-2 .slick-active .slide-image {
+  transform: scale(1.1);
+}
+
+.hero-slider-2 img {
+  animation: zoomInOut 8s ease-in-out infinite;
+}
+
+@keyframes zoomInOut {
+  0% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
