@@ -3,7 +3,7 @@ import { generateColorShades } from "./generate-colors-shades.js";
 //
 //
 
-const DEFAULT_COLOR = "#DC5BB4";
+const DEFAULT_COLOR = "#299e60";
 const STORAGE_KEY = "primary-color";
 
 window.themeConfig = {
