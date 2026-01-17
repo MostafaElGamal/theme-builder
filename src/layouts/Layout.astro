@@ -1,5 +1,6 @@
 ---
 import { themeExists, getThemeResources } from "@/utils/theme";
+import SplashScreen from "@/theme-1/components/common/splash-screen.astro";
 
 // Get the current theme from .env or URL params or default to first theme
 const envTheme = import.meta.env.ACTIVE_THEME;
@@ -52,20 +53,21 @@ const themeResources = isValidTheme ? getThemeResources(currentTheme) : null;
     <!-- END DYNAMIC THEME SCRIPTS  -->
 
     <!-- START ASTRO SCRIPTS -->
+    <script is:inline type='module' src='astro/custom-tailwind/tailwind-config.js'></script>
+
     <script
       is:inline
       type='module'
-      src='astro/custom-tailwind/tailwind-config.js'
+      src='astro/custom-tailwind/tailwindcss.min.js'
     >
     </script>
-
-    <script is:inline type='module' src='astro/custom-tailwind/tailwindcss.min.js'></script>
     <!-- End ASTRO SCRIPTS -->
 
     <title>Theme Builder</title>
   </head>
 
   <body>
+    <SplashScreen />
     <slot />
   </body>
 </html>

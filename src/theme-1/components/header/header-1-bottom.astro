@@ -310,7 +310,7 @@ import Header1SearchInput from "./header-1-search-input.astro";
 
     window.addEventListener("scroll", () => {
       if (window.pageYOffset > headerOffset && !isFixed) {
-        header.classList.add("!fixed", "top-0", "left-0", "right-0", "z-50", "slide-down");
+        header.classList.add("!fixed", "top-0", "left-0", "right-0", "slide-down");
         header.classList.remove("slide-up");
         isFixed = true;
       } else if (window.pageYOffset <= headerOffset && isFixed) {
@@ -319,7 +319,7 @@ import Header1SearchInput from "./header-1-search-input.astro";
 
         // Remove fixed classes after animation completes
         setTimeout(() => {
-          header.classList.remove("!fixed", "top-0", "left-0", "right-0", "z-50", "slide-up");
+          header.classList.remove("!fixed", "top-0", "left-0", "right-0", "slide-up");
           isFixed = false;
         }, 300);
       }

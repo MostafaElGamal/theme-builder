@@ -6,8 +6,16 @@ import ProductCard1 from "../components/common/product-card-1.astro";
   <div class='container container-lg'>
     <div class='section-heading'>
       <div class='flex-between flex-wrap gap-8'>
-        <h5 class='mb-0 wow bounceInLeft'>Organic Food</h5>
-        <div class='flex items-center gap-16 wow bounceInRight'>
+        <h5
+          class='mb-0'
+          data-aos='fade-right'
+        >
+          Organic Food
+        </h5>
+        <div
+          class='flex items-center gap-16'
+          data-aos='fade-left'
+        >
           <a
             href='shop.html'
             class='text-sm font-[500] text-gray-700 hover-text-main-600 hover-text-decoration-underline'
@@ -34,7 +42,11 @@ import ProductCard1 from "../components/common/product-card-1.astro";
       </div>
     </div>
 
-    <div class='organic-food__slider arrow-style-two'>
+    <div
+      class='organic-food__slider arrow-style-two'
+      data-aos='fade-up'
+      data-aos-delay='100'
+    >
       <ProductCard1 />
       <ProductCard1 />
       <ProductCard1 />

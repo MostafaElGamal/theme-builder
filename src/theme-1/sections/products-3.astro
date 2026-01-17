@@ -6,12 +6,21 @@ import ProductCard3 from "../components/common/product-card-3.astro";
   <div class='container container-lg'>
     <div class='section-heading'>
       <div class='flex-between flex-wrap gap-8'>
-        <h5 class='mb-0 wow bounceInLeft'>Daily Best Sells</h5>
+        <h5
+          class='mb-0'
+          data-aos='fade-right'
+        >
+          Daily Best Sells
+        </h5>
       </div>
     </div>
 
     <div class='row g-12'>
-      <div class='custom-2xl:w-8/12 flex-grow-0 flex-shrink-0 basis-auto'>
+      <div
+        class='custom-2xl:w-8/12 flex-grow-0 flex-shrink-0 basis-auto'
+        data-aos='fade-right'
+        data-aos-delay='100'
+      >
         <div class='row g-4'>
           <ProductCard3 />
           <ProductCard3 />
@@ -20,7 +29,11 @@ import ProductCard3 from "../components/common/product-card-3.astro";
         </div>
       </div>
 
-      <div class='custom-2xl:w-4/12 flex-grow-0 flex-shrink-0 basis-auto'>
+      <div
+        class='custom-2xl:w-4/12 flex-grow-0 flex-shrink-0 basis-auto'
+        data-aos='fade-left'
+        data-aos-delay='100'
+      >
         <div class='relative rounded-16 bg-light-purple overflow-hidden p-28 z-[1] text-center'>
           <div class=''>
             <img

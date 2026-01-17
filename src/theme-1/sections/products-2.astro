@@ -6,8 +6,16 @@ import ProductCard2 from "../components/common/product-card-2.astro";
   <div class='container container-lg'>
     <div class='section-heading'>
       <div class='flex-between flex-wrap gap-8'>
-        <h5 class='mb-0 wow bounceInLeft'>Hot Deals Todays</h5>
-        <div class='flex items-center gap-16 wow bounceInRight'>
+        <h5
+          class='mb-0'
+          data-aos='fade-right'
+        >
+          Hot Deals Todays
+        </h5>
+        <div
+          class='flex items-center gap-16'
+          data-aos='fade-left'
+        >
           <a
             href='shop.html'
             class='text-sm font-[500] text-gray-700 hover-text-main-600 hover-text-decoration-underline'
@@ -34,7 +42,11 @@ import ProductCard2 from "../components/common/product-card-2.astro";
       </div>
     </div>
     <div class='row g-12'>
-      <div class='lg:w-4/12 flex-grow-0 flex-shrink-0 basis-auto'>
+      <div
+        class='lg:w-4/12 flex-grow-0 flex-shrink-0 basis-auto'
+        data-aos='fade-right'
+        data-aos-delay='100'
+      >
         <div
           class='hot-deals relative rounded-16 bg-main-600 overflow-hidden p-28 z-[1] text-center'
         >
@@ -63,7 +75,11 @@ import ProductCard2 from "../components/common/product-card-2.astro";
         </div>
       </div>
 
-      <div class='lg:w-8/12 flex-grow-0 flex-shrink-0 basis-auto'>
+      <div
+        class='lg:w-8/12 flex-grow-0 flex-shrink-0 basis-auto'
+        data-aos='fade-left'
+        data-aos-delay='100'
+      >
         <div class='hot-deals-slider arrow-style-two'>
           <ProductCard2 />
           <ProductCard2 />

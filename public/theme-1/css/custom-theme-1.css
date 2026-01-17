@@ -107,3 +107,37 @@
     height: 400px !important;
   }
 }
+
+.reels-video-dialog {
+  --sl-z-index-dialog: 40;
+  --width: 90vw;
+}
+
+.reels-video-dialog::part(panel) {
+  background-color: transparent;
+  border: 0;
+  box-shadow: none;
+}
+
+.reels-video-dialog::part(overlay) {
+  background-color: rgba(0, 0, 0, 0.9);
+}
+
+.reels-video-dialog::part(close-button) {
+  color: white;
+  font-size: 2.25rem;
+}
+
+.reels-video-dialog::part(close-button__base) {
+  border-radius: 100px;
+  transition: all 0.3s ease;
+}
+
+.reels-video-dialog::part(close-button__base):hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.reels-video-dialog::part(body) {
+  overflow: hidden;
+  height: 90vh;
+}

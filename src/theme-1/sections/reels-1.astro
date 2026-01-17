@@ -2,7 +2,10 @@
   <div class='container container-lg'>
     <div class='section-heading'>
       <div class='flex justify-end flex-wrap gap-8'>
-        <div class='flex items-center gap-16 wow bounceInRight'>
+        <div
+          class='flex items-center gap-16'
+          data-aos='fade-left'
+        >
           <div class='flex items-center gap-8'>
             <button
               type='button'
@@ -23,7 +26,11 @@
       </div>
     </div>
 
-    <div class='reels-slider arrow-style-two'>
+    <div
+      class='reels-slider arrow-style-two'
+      data-aos='fade-up'
+      data-aos-delay='100'
+    >
       <!-- Reel Item 1 -->
       <div class='reel-item px-2'>
         <div class='relative rounded-16 overflow-hidden group cursor-pointer'>
@@ -180,8 +187,7 @@
 <!-- Video Modal Dialog -->
 <sl-dialog
   id='video-modal'
-  class='[&::part(panel)]:bg-transparent [&::part(panel)]:border-0 [&::part(panel)]:shadow-none [&::part(overlay)]:bg-black/90 [&::part(close-button)]:text-white [&::part(close-button)]:text-4xl [&::part(close-button__base)]:hover:bg-white/20 [&::part(close-button__base)]:rounded-full [&::part(close-button__base)]:transition-all [&::part(body)]:overflow-hidden [&::part(body)]:h-[90vh]'
-  style='--width: 90vw;'
+  class='reels-video-dialog'
 >
   <div class='relative w-full h-full flex items-center justify-center'>
     <video

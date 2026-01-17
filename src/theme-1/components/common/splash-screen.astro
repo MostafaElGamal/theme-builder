@@ -1,0 +1,164 @@
+<!-- Splash Screen -->
+<div id='splash-screen'>
+  <div class='splash-center'>
+    <!-- Logo Animation -->
+    <div class='splash-logo'>
+      <div class='splash-logo-circle'>
+        <i class='ph ph-shopping-cart splash-logo-icon'></i>
+      </div>
+    </div>
+    <!-- Brand Name -->
+    <!-- <h1 class='splash-title animate-fade-in-up'>MarketPro</h1> -->
+    <!-- Loading Spinner -->
+    <div class='splash-dots animate-fade-in-up-delay'>
+      <div class='splash-dot delay-0'></div>
+      <div class='splash-dot delay-150'></div>
+      <div class='splash-dot delay-300'></div>
+    </div>
+    <!-- Loading Text -->
+    <!-- <p class='splash-loading-text animate-fade-in-up-delay-2'>
+      Loading your shopping experience...
+    </p> -->
+  </div>
+</div>
+
+<style>
+  #splash-screen {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    transition: opacity 0.5s;
+    opacity: 1;
+  }
+  .splash-center {
+    text-align: center;
+  }
+  .splash-logo {
+    margin-bottom: 2rem;
+  }
+  .splash-logo-circle {
+    width: 8rem;
+    height: 8rem;
+    margin: 0 auto;
+    border-radius: 50%;
+    background: #dc5bb4;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    animation: bounce-slow 2s ease-in-out infinite;
+  }
+  .splash-logo-icon {
+    color: white;
+    font-size: 3.5rem;
+  }
+  .splash-title {
+    font-size: 2.25rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  .splash-dots {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 0.5rem;
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  .splash-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    background: #dc5bb4;
+    border-radius: 50%;
+    animation: pulse-dot 1.5s ease-in-out infinite;
+  }
+  .delay-0 {
+    animation-delay: 0s;
+  }
+  .delay-150 {
+    animation-delay: 0.15s;
+  }
+  .delay-300 {
+    animation-delay: 0.3s;
+  }
+  .splash-loading-text {
+    margin-top: 1.5rem;
+    font-size: 1.125rem;
+    opacity: 0;
+    transform: translateY(1.25rem);
+  }
+  @keyframes bounce-slow {
+    0%,
+    100% {
+      transform: translateY(0) scale(1);
+    }
+    50% {
+      transform: translateY(-20px) scale(1.05);
+    }
+  }
+  @keyframes fade-in-up {
+    from {
+      opacity: 0;
+      transform: translateY(1.25rem);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  @keyframes pulse-dot {
+    0%,
+    100% {
+      opacity: 0.3;
+      transform: scale(0.8);
+    }
+    50% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+  }
+  .animate-fade-in-up {
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.3s;
+  }
+  .animate-fade-in-up-delay {
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.6s;
+  }
+  .animate-fade-in-up-delay-2 {
+    animation: fade-in-up 0.8s ease-out forwards;
+    animation-delay: 0.9s;
+  }
+  #splash-screen.fade-out {
+    opacity: 0;
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  // Hide splash screen after page loads
+  window.addEventListener("load", () => {
+    const splashScreen = document.getElementById("splash-screen");
+    let fadeTimeout, removeTimeout;
+
+    if (splashScreen) {
+      fadeTimeout = setTimeout(() => {
+        splashScreen.classList.add("fade-out");
+        removeTimeout = setTimeout(() => {
+          // splashScreen.remove();
+        }, 500);
+      }, 1500);
+    }
+    // Clean up timeouts if needed (e.g., if component is unmounted)
+    window.addEventListener("beforeunload", () => {
+      clearTimeout(fadeTimeout);
+      clearTimeout(removeTimeout);
+    });
+  });
+</script>
