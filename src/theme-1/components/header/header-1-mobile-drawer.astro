@@ -1,106 +1,118 @@
 <sl-drawer
-  label='Menu'
-  placement='start'
-  class='mobile-drawer md:hidden'
+  id='mobile-drawer'
+  class='mobile-drawer hidden md:hidden'
+  style='--size: 320px; display: none;'
 >
-  <nav class='flex flex-col h-full'>
-    <ul class='list-none p-0 m-0 flex-1'>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='house'
-            class='text-2xl'
-          ></sl-icon>
-          <span>Home</span>
-        </a>
-      </li>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/shop'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='shop'
-            class='text-2xl'
-          ></sl-icon>
-          <span>Shop</span>
-        </a>
-      </li>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/categories'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='grid'
-            class='text-2xl'
-          ></sl-icon>
-          <span>Categories</span>
-        </a>
-      </li>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/deals'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='tag'
-            class='text-2xl'
-          ></sl-icon>
-          <span>Deals</span>
-        </a>
-      </li>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/about'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='info-circle'
-            class='text-2xl'
-          ></sl-icon>
-          <span>About</span>
-        </a>
-      </li>
-      <li class='border-b border-gray-200'>
-        <a
-          href='/contact'
-          class='flex items-center gap-4 py-4 px-2 no-underline text-gray-900 text-base transition-all duration-200 hover:bg-gray-50 hover:text-primary-600'
-        >
-          <sl-icon
-            name='envelope'
-            class='text-2xl'
-          ></sl-icon>
-          <span>Contact</span>
-        </a>
-      </li>
-    </ul>
+  <img
+    slot='label'
+    src='https://wowtheme7.com/tailwind/marketpro/images/logo.png'
+    alt='Logo'
+    class='!h-8'
+  />
+  <div
+    class='flex flex-col h-full bg-white'
+    dir='rtl'
+  >
+    <!-- Main Content -->
+    <nav class='flex flex-col flex-1 overflow-y-auto'>
+      <!-- Pages -->
+      <ul class='list-none p-0 m-0'>
+        <li class=''>
+          <a
+            href='/categories/tablets'
+            class='flex items-center justify-between py-4 px-6 no-underline text-gray-700 text-base transition-all duration-200 hover:bg-gray-50'
+          >
+            <div class='flex items-center gap-3 flex-1 justify-end'>
+              <span class='text-right'>الأجهزة اللوحية</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href='/categories/computers'
+            class='flex items-center justify-between py-4 px-6 no-underline text-gray-700 text-base transition-all duration-200 hover:bg-gray-50'
+          >
+            <div class='flex items-center gap-3 flex-1 justify-end'>
+              <span class='text-right'>أجهزة الكمبيوتر</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href='/categories/tvs'
+            class='flex items-center justify-between py-4 px-6 no-underline text-gray-700 text-base transition-all duration-200 hover:bg-gray-50'
+          >
+            <div class='flex items-center gap-3 flex-1 justify-end'>
+              <span class='text-right'>التلفزيونات وأجهزة الترفيه</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href='/categories/personal-care'
+            class='flex items-center justify-between py-4 px-6 no-underline text-gray-700 text-base transition-all duration-200 hover:bg-gray-50'
+          >
+            <div class='flex items-center gap-3 flex-1 justify-end'>
+              <span class='text-right'>العناية الشخصية</span>
+            </div>
+          </a>
+        </li>
+        <li>
+          <a
+            href='/categories/home'
+            class='flex items-center justify-between py-4 px-6 no-underline text-gray-700 text-base transition-all duration-200 hover:bg-gray-50'
+          >
+            <div class='flex items-center gap-3 flex-1 justify-end'>
+              <span class='text-right'>مستلزمات المنزل</span>
+            </div>
+          </a>
+        </li>
+      </ul>
+    </nav>
 
-    <div class='py-6 px-2 border-t border-gray-200'>
-      <sl-button
-        variant='primary'
-        size='medium'
-        href='/account'
-        outline
-        class='w-full'
+    <!-- Bottom Navigation -->
+    <div>
+      <!-- Login -->
+      <a
+        href='/login'
+        class='flex items-center justify-between py-4 px-6 no-underline text-gray-900 hover:bg-gray-50 transition-colors'
       >
-        <sl-icon
-          slot='prefix'
-          name='person'
-        ></sl-icon>
-        My Account
-      </sl-button>
+        <i class='ph ph-user text-2xl'></i>
+        <span class='text-right font-medium'>تسجيل الدخول</span>
+      </a>
+
+      <!-- Language Selector -->
+      <button
+        class='flex items-center justify-between w-full py-4 px-6 text-gray-900 hover:bg-gray-50 transition-colors border-0 bg-transparent cursor-pointer'
+      >
+        <div class='flex items-center gap-2'>
+          <span class='text-xl'>🇸🇦</span>
+        </div>
+        <span class='text-right font-medium'>English | السعودية</span>
+      </button>
     </div>
-  </nav>
+  </div>
 </sl-drawer>
 
 <script>
-  $(document).ready(() => {
+  $(window).on("load", function () {
     // Get the drawer element
     const drawer = document.querySelector(".mobile-drawer");
+
+    // Set placement based on document direction
+    if (drawer) {
+      const isRTL = document.documentElement.dir === "rtl" || document.body.dir === "rtl";
+      // In LTR: slide from right (end), In RTL: slide from left (end in RTL context means right)
+      drawer.placement = isRTL ? "start" : "end";
+      drawer.classList.remove("hidden");
+    }
+
+    // Show the drawer once it exists
+
+    if (drawer) {
+      drawer.style.display = "";
+    }
+
     // Function to open the drawer
     window.openMobileDrawer = () => {
       if (drawer) {

@@ -1,10 +1,14 @@
+---
+import Header1SearchInput from "./header-1-search-input.astro";
+---
+
 <!-- START NAVIGATION HEADER -->
 <header
   id='navigation-header'
-  class='bg-white border-b z-100 border-gray-100 !-mt-0.5 transition-all duration-300 ease-in-out'
+  class='bg-white border-b z-10 border-gray-100 !-mt-0.5 transition-all duration-300 ease-in-out'
 >
   <div class='container container-lg'>
-    <nav class='header-inner flex justify-between gap-8'>
+    <nav class='header-inner flex justify-between gap-8 !py-2 md:!py-0'>
       <div class='flex items-center menu-category-wrapper'>
         <div class='header-menu xl:block hidden'>
           <ul class='nav-menu flex items-center'>
@@ -15,7 +19,7 @@
               >
                 Home
               </a>
-              <ul class='on-hover-dropdown common-dropdown nav-submenu scroll-sm z-50'>
+              <ul class='on-hover-dropdown common-dropdown nav-submenu scroll-sm z-10'>
                 <li class='common-dropdown__item nav-submenu__item activePage'>
                   <a
                     href='index-2.html'
@@ -228,12 +232,14 @@
           <div class='flex items-center flex-wrap gap-12'>
             <button
               type='button'
+              id='mobile-search-toggle'
               class='search-icon flex items-center xl:hidden gap-4 item-hover'
             >
               <span class='text-2xl text-gray-700 flex relative item-hover__text'>
                 <i class='ph ph-magnifying-glass'></i>
               </span>
             </button>
+
             <a
               href='cart.html'
               class='flex items-center gap-4 item-hover'
@@ -271,15 +277,30 @@
           class='toggle-mobileMenu xl:hidden ms-3n text-gray-800 text-4xl flex'
           onclick='window.openMobileDrawer()'
         >
-          <i class='ph ph-list'></i>
+          <i class='ph ph-list text-2xl'></i>
         </button>
       </div>
     </nav>
+
+    <div
+      id='mobile-search-container'
+      class='mobile-search-container hidden ease-in-out transition-all absolute !top-full w-full left-0 bg-white !shadow-sm'
+      style='height: 0px;'
+    >
+      <Header1SearchInput />
+    </div>
   </div>
 </header>
 <!-- END NAVIGATION HEADER -->
 
 <script is:inline>
+  // jQuery event listener for mobile search toggle
+  $(document).ready(function () {
+    $("#mobile-search-toggle").on("click", function () {
+      openSearchInput();
+    });
+  });
+
   // Make header sticky when scrolled past with slide animation
   const header = document.getElementById("navigation-header");
   if (header) {
@@ -304,4 +325,22 @@
       }
     });
   }
+
+  const openSearchInput = () => {
+    const $searchContainer = $("#mobile-search-container");
+
+    if ($searchContainer.length) {
+      const currentHeight = $searchContainer.height();
+
+      if (currentHeight > 0) {
+        $searchContainer.addClass("hidden");
+        $searchContainer.css("height", "0px");
+        $searchContainer.css("padding", "0px");
+      } else {
+        $searchContainer.removeClass("hidden");
+        $searchContainer.css("height", "68px");
+        $searchContainer.css("padding", "10px");
+      }
+    }
+  };
 </script>

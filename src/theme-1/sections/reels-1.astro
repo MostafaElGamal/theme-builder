@@ -177,104 +177,89 @@
   </div>
 </section>
 
-<!-- Video Modal Overlay -->
-<div
+<!-- Video Modal Dialog -->
+<sl-dialog
   id='video-modal'
-  class='fixed inset-0 bg-black/90 z-[9999] hidden items-center justify-center'
+  class='[&::part(panel)]:bg-transparent [&::part(panel)]:border-0 [&::part(panel)]:shadow-none [&::part(overlay)]:bg-black/90 [&::part(close-button)]:text-white [&::part(close-button)]:text-4xl [&::part(close-button__base)]:hover:bg-white/20 [&::part(close-button__base)]:rounded-full [&::part(close-button__base)]:transition-all [&::part(body)]:overflow-hidden [&::part(body)]:h-[90vh]'
+  style='--width: 90vw;'
 >
-  <button
-    id='close-modal'
-    class='absolute top-8 right-8 text-white text-4xl z-[10000] w-12 h-12 flex items-center justify-center hover:bg-white/20 rounded-full transition-all'
-  >
-    <i class='ph ph-x'></i>
-  </button>
-  <div class='relative w-full max-w-[90vw] max-h-[90vh] flex items-center justify-center'>
+  <div class='relative w-full h-full flex items-center justify-center'>
     <video
       id='modal-video'
-      class='w-auto h-auto max-w-full max-h-[90vh] rounded-16'
+      class='w-auto h-auto max-w-full max-h-full rounded-16'
       controls
       autoplay
     >
     </video>
   </div>
-</div>
+</sl-dialog>
 
 <script>
-  $(".reels-slider").slick({
-    slidesToShow: 5,
-    slidesToScroll: 1,
-    autoplay: true,
-    autoplaySpeed: 3000,
-    speed: 900,
-    dots: false,
-    pauseOnHover: true,
-    arrows: true,
-    draggable: true,
-    rtl: $("html").attr("dir") === "rtl",
-    infinite: true,
-    nextArrow: "#reels-next",
-    prevArrow: "#reels-prev",
-    responsive: [
-      {
-        breakpoint: 1399,
-        settings: { slidesToShow: 5, arrows: false },
-      },
-      {
-        breakpoint: 1199,
-        settings: { slidesToShow: 3, arrows: false },
-      },
-      {
-        breakpoint: 992,
-        settings: { slidesToShow: 3, arrows: false },
-      },
-      {
-        breakpoint: 768,
-        settings: { slidesToShow: 2, arrows: false },
-      },
-      {
-        breakpoint: 575,
-        settings: { slidesToShow: 1, arrows: false },
-      },
-    ],
-  });
-
-  // Video modal functionality
-  const modal = document.getElementById("video-modal");
-  const modalVideo = document.getElementById("modal-video");
-  const closeModal = document.getElementById("close-modal");
-  const reelVideos = document.querySelectorAll(".reel-video");
-
-  // Open modal when clicking on any reel video
-  reelVideos.forEach((video) => {
-    video.addEventListener("click", function (e) {
-      e.stopPropagation();
-      const videoSrc = this.getAttribute("data-video-src");
-      modalVideo.src = videoSrc;
-      modal.classList.remove("hidden");
-      modal.classList.add("flex");
-      modalVideo.play();
+  $(document).ready(function () {
+    $(".reels-slider").slick({
+      slidesToShow: 5,
+      slidesToScroll: 1,
+      autoplay: true,
+      autoplaySpeed: 3000,
+      speed: 900,
+      dots: false,
+      pauseOnHover: true,
+      arrows: true,
+      draggable: true,
+      rtl: $("html").attr("dir") === "rtl",
+      infinite: true,
+      nextArrow: "#reels-next",
+      prevArrow: "#reels-prev",
+      responsive: [
+        {
+          breakpoint: 1399,
+          settings: { slidesToShow: 5, arrows: false },
+        },
+        {
+          breakpoint: 1199,
+          settings: { slidesToShow: 3, arrows: false },
+        },
+        {
+          breakpoint: 992,
+          settings: { slidesToShow: 3, arrows: false },
+        },
+        {
+          breakpoint: 768,
+          settings: { slidesToShow: 2, arrows: false },
+        },
+        {
+          breakpoint: 575,
+          settings: { slidesToShow: 1, arrows: false },
+        },
+      ],
     });
-  });
 
-  // Close modal
-  function closeVideoModal() {
-    modal.classList.add("hidden");
-    modal.classList.remove("flex");
-    modalVideo.pause();
-    modalVideo.src = "";
-  }
+    // Video dialog functionality with Shoelace
+    const modal = document.getElementById("video-modal");
+    const modalVideo = document.getElementById("modal-video");
+    const reelVideos = document.querySelectorAll(".reel-video");
 
-  closeModal.addEventListener("click", closeVideoModal);
-  modal.addEventListener("click", function (e) {
-    if (e.target === modal) {
-      closeVideoModal();
-    }
-  });
+    // Open dialog when clicking on any reel video
+    reelVideos.forEach((video) => {
+      video.addEventListener("click", function (e) {
+        e.stopPropagation();
+        const videoSrc = this.getAttribute("data-video-src");
+        modalVideo.src = videoSrc;
+        modal.show();
+        modalVideo.play();
+      });
+    });
 
-  // Close modal on Escape key
-  document.addEventListener("keydown", function (e) {
-    if (e.key === "Escape" && !modal.classList.contains("hidden")) {
-      closeVideoModal();
-    }
+    // Prevent body scroll when dialog is open
+    modal.addEventListener("sl-show", () => {
+      document.body.style.overflow = "hidden";
+    });
+
+    // Close dialog and cleanup video
+    modal.addEventListener("sl-hide", () => {
+      document.body.style.overflow = "";
+      modalVideo.pause();
+      modalVideo.src = "";
+    });
   });
 </script>

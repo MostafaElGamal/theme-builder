@@ -1,3 +1,7 @@
+---
+import Header1SearchInput from "./header-1-search-input.astro";
+---
+
 <!-- START MIDDLE HEADER -->
 <header class='header-middle bg-primary-50 border-b border-gray-100'>
   <div class='container container-lg'>
@@ -14,50 +18,15 @@
         </a>
       </div>
 
-      <form
-        action='#'
-        class='flex items-center flex-wrap form-location-wrapper'
-      >
-        <div class='search-category flex h-48 search-form md:flex'>
-          <div class='search-form__wrapper relative'>
-            <input
-              id='search-input'
-              class='search-form__input common-input py-13 ps-16 !rounded-full'
-              placeholder='Search for a product or brand'
-            />
-            <button
-              type='submit'
-              class='w-32 h-32 bg-main-600 rounded-[50%] flex items-center justify-center text-xl text-white absolute top-2 right-0 me-8'
-            >
-              <i class='ph ph-magnifying-glass'></i>
-            </button>
-
-            <!-- Search Dropdown -->
-            <div
-              id='search-dropdown'
-              class='absolute top-full left-0 right-0 bg-white border border-gray-200 rounded-lg shadow-xl z-50 mt-2 hidden max-h-96 overflow-y-auto'
-            >
-              <div class='p-3'>
-                <div class='text-xs text-gray-500 mb-3 font-medium uppercase tracking-wide'>
-                  Search Results:
-                </div>
-                <div
-                  id='search-results'
-                  class='space-y-1'
-                >
-                  <!-- Dynamic search results will be inserted here -->
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+      <div class='flex items-center flex-wrap form-location-wrapper'>
+        <Header1SearchInput />
 
         <div
           class='location-box bg-white flex items-center gap-8 py-6 px-16 rounded-full max-h-12 !border border-gray-100'
         >
           <span class='text-gray-900 text-xl sm:flex hidden'><i class='ph ph-map-pin'></i></span>
           <div class='line-height-1'>
-            <span class='text-gray-600 text-xs'>Your Location</span>
+            <span class='text-gray-600 text-xs hidden md:flex'>Your Location</span>
             <div class='line-height-1'>
               <select
                 class='js-example-basic-single border-0 outline-0'
@@ -80,7 +49,7 @@
             </div>
           </div>
         </div>
-      </form>
+      </div>
 
       <div class='header-right items-center xl:block hidden'>
         <div class='flex items-center flex-wrap gap-12'>
@@ -127,153 +96,3 @@
   </div>
 </header>
 <!-- START MIDDLE HEADER -->
-
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const searchInput = document.getElementById("search-input");
-    const searchDropdown = document.getElementById("search-dropdown");
-    const searchResults = document.getElementById("search-results");
-
-    // Sample product data - replace with your actual product data
-    const products = [
-      {
-        id: 1,
-        name: "iPhone 14 Pro",
-        price: "$999.99",
-        category: "Electronics",
-        image: "https://images.unsplash.com/photo-1556656793-08538906a9f8?w=100&h=100&fit=crop",
-      },
-      {
-        id: 2,
-        name: "Samsung Galaxy S23",
-        price: "$799.99",
-        category: "Electronics",
-        image: "https://images.unsplash.com/photo-1511707171634-5f897ff02aa9?w=100&h=100&fit=crop",
-      },
-      {
-        id: 3,
-        name: "Nike Air Max 270",
-        price: "$159.99",
-        category: "Footwear",
-        image: "https://images.unsplash.com/photo-1542291026-7eec264c27ff?w=100&h=100&fit=crop",
-      },
-      {
-        id: 4,
-        name: "MacBook Pro M2",
-        price: "$1,299.99",
-        category: "Electronics",
-        image: "https://images.unsplash.com/photo-1496181133206-80ce9b88a853?w=100&h=100&fit=crop",
-      },
-      {
-        id: 5,
-        name: "Adidas Ultraboost 22",
-        price: "$179.99",
-        category: "Footwear",
-        image: "https://images.unsplash.com/photo-1608231387042-66d1773070a5?w=100&h=100&fit=crop",
-      },
-      {
-        id: 6,
-        name: "Sony WH-1000XM4",
-        price: "$349.99",
-        category: "Electronics",
-        image: "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?w=100&h=100&fit=crop",
-      },
-      {
-        id: 7,
-        name: "Levi's 501 Jeans",
-        price: "$79.99",
-        category: "Clothing",
-        image: "https://images.unsplash.com/photo-1542272604-787c3835535d?w=100&h=100&fit=crop",
-      },
-      {
-        id: 8,
-        name: "Apple Watch Series 8",
-        price: "$399.99",
-        category: "Electronics",
-        image: "https://images.unsplash.com/photo-1434493789847-2f02dc6ca35d?w=100&h=100&fit=crop",
-      },
-    ];
-
-    function showDropdown() {
-      searchDropdown.classList.remove("hidden");
-    }
-
-    function hideDropdown() {
-      searchDropdown.classList.add("hidden");
-    }
-
-    function filterSuggestions(query) {
-      return products.filter(
-        (product) =>
-          product.name.toLowerCase().includes(query.toLowerCase()) ||
-          product.category.toLowerCase().includes(query.toLowerCase())
-      );
-    }
-
-    function displayResults(results) {
-      searchResults.innerHTML = "";
-
-      if (results.length === 0) {
-        searchResults.innerHTML = '<div class="text-gray-500 text-sm p-4">No products found</div>';
-        return;
-      }
-
-      results.forEach((product) => {
-        const resultElement = document.createElement("div");
-        resultElement.className =
-          "cursor-pointer p-3 hover:bg-gray-50 pb-2 border-b border-gray-100 last:!border-b-0 transition-colors !py-2";
-
-        resultElement.innerHTML = `
-          <div class="flex items-center gap-3">
-            <img 
-              src="${product.image}" 
-              alt="${product.name}"
-              class="!h-[40px] rounded-full object-cover flex-shrink-0"
-              onerror="this.src='https://via.placeholder.com/48x48/e5e7eb/6b7280?text=No+Image'"
-            />
-            <div class="flex items-center justify-between min-w-0 w-full">
-              <div class="font-medium text-gray-900 text-sm truncate">${product.name}</div>
-              <div class="font-semibold text-main-600 text-sm">${product.price}</div>
-            </div>
-          </div>
-        `;
-
-        resultElement.addEventListener("click", function () {
-          searchInput.value = product.name;
-          hideDropdown();
-          // You can add navigation to product page here
-          console.log("Selected product:", product);
-        });
-
-        searchResults.appendChild(resultElement);
-      });
-    }
-
-    // Show dropdown and filter results when input changes
-    searchInput.addEventListener("input", function () {
-      const query = this.value.trim();
-
-      if (query.length > 0) {
-        const filteredResults = filterSuggestions(query);
-        displayResults(filteredResults);
-        showDropdown();
-      } else {
-        hideDropdown();
-      }
-    });
-
-    // Hide dropdown when clicking outside
-    document.addEventListener("click", function (event) {
-      if (!searchInput.contains(event.target) && !searchDropdown.contains(event.target)) {
-        hideDropdown();
-      }
-    });
-
-    // Hide dropdown when pressing Escape
-    searchInput.addEventListener("keydown", function (event) {
-      if (event.key === "Escape") {
-        hideDropdown();
-      }
-    });
-  });
-</script>
